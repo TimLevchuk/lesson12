@@ -1,6 +1,7 @@
 package com.javarush.lesson12;
 
 import com.javarush.lesson12.model.User;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-@WebServlet("/view")
+@WebServlet(urlPatterns = "/view")
 public class View extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -16,9 +17,9 @@ public class View extends HttpServlet {
         resp.getWriter().println(html);
     }
 
-    protected void doPst(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String html = getHtml(req);
-        resp.getWriter().println(html);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("/");
+
     }
 
     private String getHtml (HttpServletRequest req){

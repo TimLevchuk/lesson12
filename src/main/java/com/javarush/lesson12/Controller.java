@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("view");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view");
         requestDispatcher.include(req, resp);
     }
 
